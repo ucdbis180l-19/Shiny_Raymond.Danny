@@ -9,7 +9,7 @@
 
 library(shiny)
 library(ggplot2)
-data(tomato)
+read_csv("/home/ubuntu/Assignments/Shiny/webapp/Tomato.csv")
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
