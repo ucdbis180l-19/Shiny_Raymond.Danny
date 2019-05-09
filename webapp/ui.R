@@ -13,21 +13,15 @@ library(shiny)
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel("Old Faithful Geyser Data"),
+  titlePanel("Stem Heights of different Tomato species"),
+  # Copy the chunk below to make a group of checkboxes
+  checkboxGroupInput("traits", label = h3("Stem lengths"), 
+                     choices = list("Hypocotyl Length" = hyp, "Internode 1" = int1, "Internode 2" = int2, 
+                                    "Internode 3" = int3, "Internode 4"= int4), 
+                     selected = 1),
   
-  # Sidebar with a slider input for number of bins 
-  sidebarLayout(
-    sidebarPanel(
-       sliderInput("bins",
-                   "Number of bins:",
-                   min = 1,
-                   max = 50,
-                   value = 30)
-    ),
-    
-    # Show a plot of the generated distribution
-    mainPanel(
-       plotOutput("distPlot")
-    )
-  )
+  
+  hr(),
+  fluidRow(column(3, verbatimTextOutput("value")))
+  
 ))
