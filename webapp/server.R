@@ -8,18 +8,16 @@
 #
 
 library(shiny)
-library(ggplot2)
-read_csv("/home/ubuntu/Assignments/Shiny/webapp/Tomato.csv")
+library(tidyverse)
+tomato <- read_csv("/home/ubuntu/Shiny_Raymond.Danny/webapp/Tomato.csv")
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
    
-  output$histogram <- renderPlot({
+  output$tomato_histo <- renderPlot({
+    tomato$pl <- rowSums(tomato[,input$traits])
     
-    tomato_histo <- ggplot(data = tomato, aes_string(y=input$traits), color=species)
-
-    tomato_histo + geom_histogram() + facet_wrap(~species) + ylab("Count") 
-    + ggtitle("Total length by species")
+    ggplot(data = tomato, aes_string(x=tomato$pl)) + geom_histogram() + facet_wrap(~species) + ylab("Count") + ggtitle("Total length by species")
   })
   
 })

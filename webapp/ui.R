@@ -18,7 +18,7 @@ shinyUI(fluidPage(
   checkboxGroupInput("traits", label = h3("Stem lengths"), 
                      choices = list("Hypocotyl Length" = "hyp", "Internode 1" = "int1", "Internode 2" = "int2", 
                                     "Internode 3" = "int3", "Internode 4"= "int4"), 
-                     selected = 1),
+                     selected = "hyp"),
   
   
   mainPanel(plotOutput("tomato_histo"))
