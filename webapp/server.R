@@ -17,7 +17,7 @@ shinyServer(function(input, output) {
   output$tomato_histo <- renderPlot({
     tomato$pl <- rowSums(tomato[,input$traits])
     
-    ggplot(data = tomato, aes_string(x=tomato$pl,colour="species",fill="species")) + geom_histogram() + facet_wrap(~species) + ylab("Count") + ggtitle("Total length by species")
+    ggplot(data = tomato, aes_string(x=tomato$pl,fill="species")) + geom_histogram() + facet_wrap(~species) + ylab("Count") + ggtitle("Total length by species")
   })
   
 })
