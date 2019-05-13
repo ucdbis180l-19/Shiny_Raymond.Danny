@@ -9,7 +9,7 @@
 
 library(shiny)
 library(tidyverse)
-tomato <- read_csv("/home/ubuntu/Shiny_Raymond.Danny/webapp/Tomato.csv")
+tomato <- read_csv("Tomato.csv")
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
